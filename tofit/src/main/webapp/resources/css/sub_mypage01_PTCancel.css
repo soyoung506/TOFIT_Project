@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../font/Pretendard/public/variable/PretendardVariable.ttf") format("truetype");
+}
+
+button {
+    cursor: pointer;
+}
+#content {
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* rcCancel_head 시작 */
+.rcCancel_head {
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+.rcCancel_head h1 {
+    position: relative;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 30px;
+    font-weight: 400;
+    width: 330px;
+    height: 35px;
+}
+
+/* rcCancel_body 시작 */
+.rcCancel_body {
+    width: 100%;
+    position: relative;
+    margin: 80px 0 300px;
+}
+.back {
+	position: relative;
+    font-family: "pretendard";
+    color: #c0c0c0;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.rcCancel_body h2 {
+    position: relative;
+    font-family: "pretendard";
+    color: #FF3333;
+    font-size: 15px;
+    font-weight: 400;
+}
+.rcCancel_body p {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    z-index: 1000;
+}
+.rcCancel_body p button.PTReservation_cancel {
+    width: 70px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #112233;
+    color: #fff;
+}
+.rcCancel_body ul {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+.rcCancel_body ul.list_head {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    background-color: #F5F5F5;
+    padding: 10px 0;
+    margin-top: 45px;
+}
+.rcCancel_body ul.list_head li:not(:first-child):not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+.rcCancel_body ul.reservationList {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+.rcCancel_body ul li {
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+}
+.rcCancel_body ul.reservationList li.noReservation {
+	width: 100%;
+}
+.rcCancel_body ul.list_head li, ul.reservationList li { 
+    line-height: 30px;
+}
+.rcCancel_body ul li.PTCheckbox {
+    width: 50px;
+}
+.rcCancel_body ul li.rvNumber {
+    width: 150px;
+}
+.rcCancel_body ul li.rvCenter {
+    width: 370px;
+}
+.rcCancel_body ul li.rvMembership {
+    width: 330px;
+}
+.rcCancel_body ul li.rvRemain {
+    width: 200px;
+}
+.rcCancel_body ul li.rvTime {
+    width: 400px;
+}
+
+/* 페이지 버튼 */
+.pageBtn {
+    position: relative;
+    text-align: center;
+    margin-top: 40px;
+}
+.pageBtn .ulBtn {
+    position: relative;
+    display: inline-block;
+}
+.pageBtn .ulBtn li {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 27px;
+    border: 1px solid rgba(204,204,204,0);
+}
+.pageBtn .ulBtn li a {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+}
+.pageBtn .ulBtn li.present_btn {
+    border: 1px solid rgba(204,204,204,1);
+}
+.pageBtn .ulBtn li.present_btn a {
+    color: #112233;
+    font-weight: 600;
+}
+.pageBtn .ulBtn li:hover:not(.previous_btn, .next_btn) {
+    border: 1px solid rgba(204,204,204,1);
+}

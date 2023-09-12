@@ -1,0 +1,1011 @@
+@font-face {
+    font-family: "NotoSansR";
+    src: url("../font/Noto_Sans/NotoSans-Regular.ttf") format("truetype");
+}
+
+body {
+    background-color: #e3e3e3;
+}
+
+#content {
+    width: 100%;
+}
+#bg{
+    background-image: url(../images/bg_epibox_wrap.jpg);
+}
+
+#main {
+    width: 100%;
+    height: 670px;
+    
+    /* background-image: url(/-topeet-main-master/images/1img.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+.video{
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 660px;
+}
+.video_in{
+    height: 750px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#main_inner {
+    overflow: hidden;
+    width: 1300px;
+    height: 650px;
+    margin: 0 auto;
+}
+
+#main_inner h1 {
+    display: inline-block;
+    margin-top: 130px;
+    color: #fff;
+    font-size: 32px;
+    line-height: 44px;
+}
+
+.big_tit1 {
+    display: inline-block;
+    width: 1100px;
+}
+
+.big_tit2 {
+    display: inline-block;
+    width: 1110px;
+}
+
+.big_tit2 b {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#main_inner p {
+    color: #fff;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.small_tit1 {
+    display: inline-block;
+    width: 1100px;
+    margin-bottom: 17px;
+}
+
+#main_inner p b {
+    font-weight: bold;
+}
+
+.cta1 {
+    display: block;
+    margin: 20px 0;
+    width: 190px;
+    height: 52px;
+    line-height: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: #fff;
+    color: #123;
+    font-size: 14px;
+}
+
+.cta2 {
+    display: block;
+    margin: 20px 0;
+    width: 190px;
+    height: 52px;
+    line-height: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: #123;
+    color: #fff;
+    font-size: 14px;
+}
+
+#big_title {
+    padding-top: 20px;
+    position: relative;
+    width: auto;
+    height: 555px;
+    z-index: 9999;
+}
+
+.tit_inner {
+    position: relative;
+    width: 1300px;
+    height: 524px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.tit_inner img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 30px;
+    margin-top: 40px;
+}
+
+.tit_inner h3 {
+    text-align: center;
+}
+
+.bigt1 {
+    display: inline-block;
+    width: 1300px;
+    font-size: 44px;
+    color: #123;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.bigt2 {
+    display: inline-block;
+    width: 1300px;
+    font-size: 44px;
+    color: #123;
+    font-weight: 400;
+}
+
+.bigt2 b {
+    font-weight: bold;
+}
+
+.t1 {
+    display: inline-block;
+    width: 1300px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #123;
+}
+
+.t2 {
+    display: inline-block;
+    width: 1300px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #123;
+}
+
+.t3 {
+    display: inline-block;
+    width: 1300px;
+    text-align: center;
+    font-size: 18px;
+    color: #123;
+}
+
+#product {
+    width: 100%;
+    z-index: -999;
+}
+
+.product_inner {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1300px;
+    height: 520px;
+    width: 1300px;
+    background: rgba(17, 34, 51, .85);
+    overflow: hidden;
+    animation-name: jaehe1;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe1 {
+    0% {
+        bottom: 100px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 80px;
+        opacity: 1;
+    }
+}
+
+.product_inner h6 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 50px 0 0 20px;
+}
+
+.product_t1 {
+    display: inline-block;
+    font-size: 32px;
+    color: #fff;
+    width: 1300px;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+.product_t2 {
+    display: inline-block;
+    font-size: 32px;
+    color: #fff;
+    width: 1300px;
+    margin-top: 10px;
+    margin-left: 17px;
+}
+
+.product_inner p {
+    margin-top: 0;
+    margin-left: 15px;
+    display: inline-block;
+    width: 500px;
+    height: 150px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ccc;
+}
+
+.product_t3 {
+    display: block;
+    width: 415px;
+}
+
+.product_t5 {
+    display: block;
+    width: 415px;
+}
+
+.product_t6 {
+    display: block;
+    width: 415px;
+    margin-top: 20px;
+}
+
+.product_t7 b {
+    font-weight: bold;
+}
+
+.product_pig1 {
+    position: relative;
+    width: 440px;
+    height: 300px;
+    bottom: 100px;
+    border-radius: 15px;
+    z-index: -999;
+    /* �븷�땲硫붿씠�뀡 �씠由� */
+    /* animation-name: jaehee; */
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehee {
+    0% {
+        left: 500px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 20px;
+        opacity: 1;
+    }
+}
+
+.product_pig2 {
+    position: absolute;
+    max-width: 440px;
+    height: 300px;
+    right: 300px;
+    margin-top: 70px;
+    border-radius: 15px;
+    z-index: -999;
+    /* �븷�땲硫붿씠�뀡 �씠由� */
+    animation-name: jaehe;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe {
+    0% {
+        left: 500px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 850px;
+        opacity: 1;
+    }
+}
+
+#box_content {
+    position: relative;
+    width: 1300px;
+    height: 950px;
+    margin: 0 auto;
+}
+
+.box1 {
+    position: relative;
+    display: inline-block;
+    width: 690px;
+    height: 460px;
+    background-color: #fff;
+    margin-top: 35px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%), 0 6px 16px rgb(0 0 0 / 10%);
+    animation-name: jaehe3;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe3 {
+    0% {
+        bottom: 150px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+.box2 {
+    position: relative;
+    width: 690px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%), 0 6px 16px rgb(0 0 0 / 10%);
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 25px;
+    animation-name: jaehe5;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes jaehe5 {
+    0% {
+        left: 300px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 1px;
+        opacity: 1;
+    }
+}
+
+
+.box3 {
+    position: relative;
+    width: 500px;
+    height: 910px;
+    background-color: #000;
+    float: right;
+    overflow: hidden;
+    margin-right: 0px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%), 0 6px 16px rgb(0 0 0 / 10%);
+    animation-name: jaehe5;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes jaehe5 {
+    0% {
+        left: 300px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 1px;
+        opacity: 1;
+    }
+}
+
+.box1 h6 {
+    color: #444;
+    font-size: 18px;
+    font-weight: 60;
+    padding-top: 30px;
+    margin-left: 30px;
+}
+
+.box1_t1 {
+    display: inline-block;
+    width: 600px;
+    font-size: 32px;
+    line-height: 40px;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+.box1_t2 {
+    display: inline-block;
+    width: 600px;
+    font-size: 32px;
+    line-height: 40px;
+    margin-left: 30px;
+}
+
+.box_t3 {
+    margin-left: 30px;
+    margin-top: 130px;
+    display: inline-block;
+    width: 800px;
+    color: #666;
+}
+
+.box_t4 {
+    margin-left: 30px;
+    margin-top: 5px;
+    display: inline-block;
+    width: 800px;
+    color: #666;
+}
+
+.box_t5 {
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 5px;
+    color: #666;
+}
+
+.box_t6 {
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 28px;
+    width: 900px;
+    color: #666;
+}
+
+.box1 b {
+    display: block;
+    margin-left: 28px;
+    color: #112233;
+    font-weight: bold;
+}
+
+.box1_pic {
+    width: 300px;
+    height: 230px;
+    position: relative;
+    bottom: 220px;
+    left: 370px;
+    animation-name: jaehe2;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe2 {
+    0% {
+        bottom: 0px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 230px;
+        opacity: 1;
+    }
+}
+
+.box2 h6 {
+    color: #444;
+    font-size: 18px;
+    font-weight: 60;
+    padding-top: 30px;
+    margin-left: 30px;
+}
+
+.box2_t1 {
+    display: inline-block;
+    width: 600px;
+    font-size: 32px;
+    line-height: 40px;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+.box2_t2 {
+    display: inline-block;
+    width: 600px;
+    font-size: 32px;
+    line-height: 40px;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.box2_t3 {
+    display: inline-block;
+    width: 600px;
+    font-size: 32px;
+    line-height: 40px;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.box2 p {
+    margin-top: 70px;
+}
+
+.box2_t4 {
+    margin-left: 30px;
+    margin-top: 7px;
+    display: inline-block;
+    width: 800px;
+    color: #666;
+}
+
+.box2 b {
+    color: #123;
+    font-weight: bold;
+}
+.box2_pig1 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 420px;
+    bottom: 60px;
+    animation-name: jaehe4;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+.graph {
+    position: absolute;
+    left: 450px;
+    bottom: 100px;
+    width: 160px;
+    height: 180px;
+    background: rgba(255,255,255,.8);
+    box-shadow: 0 4px 8px rgb(100 100 100 / 10%);
+    text-align: center;
+    border-radius: 8px;
+    animation-name: jaehe4;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe4 {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 70px;
+        opacity: 1;
+    }
+}
+.graph small {
+    display: inline-block;
+    color: #666;
+    font-size: 16px;
+    padding-top: 30px;
+}
+.graph strong {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 44px;
+    font-weight: bold;
+    color: #7fd321;
+}
+.box3 h6{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 30px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+}
+.box3_t1{
+    display: inline-block;
+    width: 480px;
+    font-size: 32px;
+    line-height: 40px;
+    color: #fff;
+    margin-left: 20px;
+}
+.box3 p span {
+    display: inline-block;
+    width: 400px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    margin-left: 20px;
+}
+.box3_t2 {
+    margin-top: 70px;
+    
+}
+.box3_t2 b {
+    font-weight: bold;
+}
+.box3_t4 {
+    margin-bottom: 50px;
+}
+.box3_pig {
+    position: relative;
+    width: 270px;
+    height: 370px;
+    margin-left: 60px;
+    margin-top: 10px;
+    border-radius: 15px;
+    animation-name: jaehe6;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes jaehe6 {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 270px;
+        opacity: 1;
+    }
+}
+.box3_pig2{
+    position: absolute;
+    width: 300px;
+    height: 280px;
+    right: 5px;
+    bottom: 50px;
+    border-radius: 15px;
+    animation-name: jaehe7;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes jaehe7 {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 280px;
+        opacity: 1;
+    }
+}
+#content_program {
+    width: 100%;
+    height: 890px;
+    background-image: url(../images/2im.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.program_inner {
+    width: 1300px;
+    height: 890px;
+    margin: 0 auto;
+}
+.program_inner h3{
+    color: #fff;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    padding-top: 50px;
+}
+.program_t1 {
+    display: inline-block;
+    width: 1300px;
+}
+.program_inner p{
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 30px;
+}
+.program_content {
+    width: 1300px;
+    margin: 0 auto;
+}
+.program_box1 {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 600px;
+    height: 500px;
+    background: #fff;
+    margin-right: 0;
+    margin-top: 40px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%), 0 6px 16px rgb(0 0 0 / 10%);
+    border-radius: 6px;
+    animation-name: jaehe10;
+    animation-duration: 3s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes jaehe10 {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 600px;
+        opacity: 1;
+    }
+}
+.program_box2 {
+    position: relative;
+    float: right;
+    overflow: hidden;
+    width: 600px;
+    height: 500px;
+    background: #fff;
+    margin-top: 40px;
+    margin-right: 70px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%), 0 6px 16px rgb(0 0 0 / 10%);
+    border-radius: 6px;
+    animation-name: jaehe10;
+    animation-duration: 3s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes jaehe10 {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 600px;
+        opacity: 1;
+    }
+}
+.program_box1 h4{
+    color: #123;
+    font-size: 32px;
+    line-height: 40px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.program_box1 span {
+    display: inline-block;
+    width: 480px;
+}
+.program_box1 span b{
+    font-weight: bold;
+}
+.program_box1 small {
+    display: inline-block;
+    width: 480px;
+    color: #444;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.program_box1 ul {
+    width: 480px;
+    margin-left: 20px;
+}
+.program_box1 ul li{
+    list-style: circle;
+    margin: 2px 0 2px 20px;
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.program_btn1 {
+    position: relative;
+    display: inline-block;
+    height: 48px;
+    line-height: 46px;
+    width: 180px;
+    font-size: 13px;
+    color: #fff;
+    background: #123;
+    text-align: center;
+    margin-top: 90px;
+    margin-left: 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+    animation-name: jaehe8;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe8 {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom:0px;
+        opacity: 1;
+    }
+}
+.program_pig1 {
+    position: absolute;
+    width: 200px;
+    height: 350px;    
+    right: 0;
+    bottom: 5px;
+    animation-name: jaehe9;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe9 {
+    0% {
+        right: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        right:0px;
+        opacity: 1;
+    }
+}
+
+.program_box2 h4{
+    color: #123;
+    font-size: 32px;
+    line-height: 40px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.program_box2 span {
+    display: inline-block;
+    width: 480px;
+}
+.program_box2 span b{
+    font-weight: bold;
+}
+.program_box2 small {
+    display: inline-block;
+    width: 480px;
+    color: #444;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.program_box2 ul {
+    width: 480px;
+    margin-left: 20px;
+}
+.program_box2 ul li{
+    list-style: circle;
+    margin: 2px 0 2px 20px;
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.program_btn2 {
+    position: relative;
+    display: inline-block;
+    height: 48px;
+    line-height: 46px;
+    width: 180px;
+    font-size: 13px;
+    color: #fff;
+    background: #174c88;
+    text-align: center;
+    margin-top: 115px;
+    margin-left: 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+    animation-name: jaehe8;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe8 {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom:0px;
+        opacity: 1;
+    }
+}
+.program_pig2 {
+    position: absolute;
+    width: 230px;
+    height: 280px;    
+    top: 220px;
+    right: 0;
+    border-radius: 15px;
+    animation-name: jaehe9;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes jaehe9 {
+    0% {
+        right: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        right:0px;
+        opacity: 1;
+    }
+}
+#last_banner {
+    width: 100%;
+    height: 260px;
+}
+.last_inner {
+    width: 1300px;
+    height: 160px;
+    margin: 0 auto;
+}
+.last_inner h3{
+    width: 1100px;
+    color: #123;
+    font-size: 32px;
+    text-align: center;
+    margin: 80px auto 0;
+}
+.last_inner img {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin-left: 610px;
+    margin-top: 40px;
+    
+}

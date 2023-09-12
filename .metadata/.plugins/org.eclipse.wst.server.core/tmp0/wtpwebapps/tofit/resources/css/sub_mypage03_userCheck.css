@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../font/Pretendard/public/variable/PretendardVariable.ttf") format("truetype");
+}
+
+#content {
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* userCheck_head 시작 */
+.userCheck_head {
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+.userCheck_head h1 {
+    position: relative;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 30px;
+    font-weight: 400;
+    width: 200px;
+    height: 35px;
+}
+
+/* userCheck 시작 */
+.userCheck {
+    width: 800px;
+    height: 410px;
+    position: relative;
+    margin: 100px auto 300px;
+}
+.userCheck h2 {
+    position: relative;
+    font-family: "pretendard";
+    color: #888;
+    font-size: 20px;
+    font-weight: 400;
+}
+.userCheck ul.userCheck_input {
+    position: relative;
+    margin: 40px auto 0;
+}
+.userCheck ul.userCheck_input li label{
+    display: block;
+    margin: 35px 0 15px;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+}
+.userCheck ul.userCheck_input li input {
+    width: 800px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.userCheck ul.userCheck_button {
+    position: absolute;
+    display: flex;
+    width: 175px;
+    top: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.userCheck ul.userCheck_button li .profile_button {
+    width: 80px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+}
+.userCheck ul.userCheck_button li .button_cancel {
+    margin-right: 15px;
+    background-color: #EDEDED;
+}
+.userCheck ul.userCheck_button li .button_modify {
+    background-color: #112233;
+    color: #fff;
+}

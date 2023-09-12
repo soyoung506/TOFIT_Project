@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+	<typeAliases>
+		<typeAlias type="com.tofit.spring.member.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="com.tofit.spring.center.vo.CenterVO" alias="centerVO"/>
+		<typeAlias type="com.tofit.spring.center.vo.PurchaseVO" alias="purchaseVO" />
+		<typeAlias type="com.tofit.spring.mypage.calendar.vo.CalendarVO" alias="calendarVO"/>
+      	<typeAlias type="com.tofit.spring.mypage.calendar.vo.ReservationVO" alias="reservationVO"/>
+      	<typeAlias type="com.tofit.spring.mypage.payment.vo.PTpaymentVO" alias="ptPaymentVO"/>
+      	<typeAlias type="com.tofit.spring.mypage.profile.vo.BoardVO" alias="boardVO"/>
+      	<typeAlias type="com.tofit.spring.mypage.profile.vo.ProfileVO" alias="profileVO"/>
+      	<typeAlias type="com.tofit.spring.admin.vo.FitnessCenterVO" alias="fitnesssCenterVO"/>
+      	<typeAlias type="com.tofit.spring.admin.vo.PTmembershipVO" alias="ptMembershipVO"/>
+	    <typeAlias type="com.tofit.spring.community.vo.CommuVO" alias="commuVO"/>
+      	<typeAlias type="com.tofit.spring.comment.vo.CommentVO" alias="commentVO"/>
+      	<typeAlias type="com.tofit.spring.shop.vo.ProductVO" alias="productVO"/>
+      	<typeAlias type="com.tofit.spring.shop.vo.CartsVO" alias="cartsVO"/>
+      	<typeAlias type="com.tofit.spring.shop.vo.OrderVO" alias="orderVO"/>
+	</typeAliases>
+</configuration>
+

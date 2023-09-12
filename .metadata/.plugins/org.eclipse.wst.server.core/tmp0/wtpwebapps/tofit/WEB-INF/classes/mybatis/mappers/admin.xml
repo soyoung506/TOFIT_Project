@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.admin">
+
+<resultMap type="fitnesssCenterVO" id="cenResult">
+	<result property="cenNumber" column="cenNumber"/>
+	<result property="cenName" column="cenName"/>
+</resultMap>
+<resultMap type="ptMembershipVO" id="ptResult">
+	<result property="ptNo" column="ptNo"/>
+	<result property="fkCenNumber" column="fkCenNumber"/>
+	<result property="cenName" column="cenName"/>
+	<result property="ptCoach" column="ptCoach"/>
+	<result property="name" column="name"/>
+	<result property="ptPeriod" column="ptPeriod"/>
+	<result property="ptCount" column="ptCount"/>
+	<result property="ptPrice" column="ptPrice"/>
+	<result property="centerMembership" column="centerMembership"/>
+</resultMap>
+<resultMap type="profileVO" id="proResult">
+	<result property="id" column="id"/>
+	<result property="name" column="name"/>
+	<result property="pwd" column="pwd"/>
+	<result property="email" column="email"/>
+	<result property="nickName" column="nickName"/>
+	<result property="profileImg" column="profileImg"/>
+	<result property="joinDate" column="joinDate"/>
+	<result property="address" column="address"/>
+	<result property="phone" column="phone"/>
+	<result property="admin" column="admin"/>
+</resultMap>
+
+<!-- PT 이용권 조회 -->
+<select id="getPTmembership" resultMap="ptResult">
+	<![CDATA[
+		select pt.ptNo ptNo, pt.fkCenNumber fkCenNumber, cen.cenName cenName, 
+		pt.ptCoach ptCoach, mem.name name, pt.ptPeriod ptPeriod, 
+		pt.ptCount ptCount, pt.ptPrice ptPrice, pt.centerMembership centerMembership 
+		from ptMembership pt, fitnessCenter cen, members mem 
+		where pt.fkCenNumber=cen.cenNumber and pt.ptCoach=mem.id 
+		order by pt.fkCenNumber, pt.ptNO
+	]]>
+</select>
+<!-- 전체 센터 조회 -->
+<select id="getFitnessCenter" resultMap="cenResult">
+	<![CDATA[
+		select cenNumber, cenName from fitnessCenter
+	]]>
+</select>
+<!-- 전체 코치 조회 -->
+<select id="getCoach" resultMap="proResult">
+	<![CDATA[
+		select id, name from members where admin='코치'
+	]]>
+</select>
+<!-- PT 이용권 비활성화 -->
+<update id="setDisabledPT" parameterType="int">
+	<![CDATA[
+		update ptMembership set centerMembership='이용권 중지' where ptNo=#{ptNo}
+	]]>
+</update>
+<!-- PT 이용권 번호 부여 -->
+<select id="getPtNumber" resultType="int">
+	<![CDATA[
+		select max(ptNo) from ptMembership
+	]]>
+</select>
+<!-- PT 이용권 추가 -->
+<select id="addPTmembership" parameterType="ptMembershipVO">
+	<![CDATA[
+		insert into ptMembership values(#{ptNo}, #{ptCoach}, #{ptPeriod}, #{ptCount}, #{fkCenNumber}, #{ptPrice}, #{centerMembership})
+	]]>
+</select>
+
+
+
+
+
+</mapper>

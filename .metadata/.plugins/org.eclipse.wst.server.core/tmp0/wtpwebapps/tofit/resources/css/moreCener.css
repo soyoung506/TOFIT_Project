@@ -1,0 +1,378 @@
+@charset "EUC-KR";
+h1,h2,p,span,em,li,a,button{
+    font-family: 'Pretendard-Regular';
+}
+
+#content {
+    width: 1300px;
+    margin: 0 auto;
+}
+#wrap{
+    position: relative;
+    width: 1300px;
+    margin: 0 auto;
+    top: 100px;
+    height: 950px;
+}
+.animation_canvas{
+    position: relative; 
+    width: 692px;
+    overflow: hidden;
+}
+.slider_panel{
+    width: 4844px; 
+    position: relative;
+}
+.slider_image{
+    width: 692px;
+    height: 420px;
+    float: left;
+}
+
+.left_right_control_panel{
+    position: relative;
+    cursor: pointer;
+    width: 692px;
+    height: 20px;
+}
+.left_control{
+    position: relative;
+    left: 0px;
+    bottom: 230px;
+    width: 64px;
+}
+.right_control{
+    position: relative;
+    bottom: 230px;
+    left: 560px;
+    width: 64px;
+}
+
+.icon{
+    position: relative;
+    width: 22px;
+    height: 22px;
+}
+.introduce{
+    position: relative;
+    width: 692px;
+    left: 0;
+    top: 80px;
+}
+.introduce>p{
+    position: relative;
+    font-size: 15px;
+    top: 20px;
+    padding-bottom: 20px;
+}
+.box_title{
+    font-size: 15px;
+    color: #A3A3A3;
+    font-weight: bold;
+}
+.program{
+    position: relative;
+    margin-top: 50px;
+    width: 692px;
+    height: 200px;
+}
+.pro_title{
+    position: relative;   
+    bottom: 35px;
+    font-size: 15px;
+    font-weight: bold;
+    left: 10px;
+}
+.program li{
+    position: relative;
+    padding-top: 15px;
+    left: 30px;
+    font-size: 15px;
+    list-style: disc;
+
+}
+.program li:first-child{
+    list-style: none;
+
+}
+.pro_title_last{
+    position: relative;
+    font-size: 15px;
+    font-weight: bold;
+    bottom: 25px;
+}
+
+
+
+.coach_box>li{
+    position: relative;
+    float: left;
+    margin: 30px 30px 20px 0;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.coach_box>li:hover{
+    background-color: #e9e7e7;
+}
+.coach_name{
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 15px;
+    font-weight: 600;
+}
+.coach_inst{
+    font-size: 12px;
+    margin-top: 20px;
+    font-weight: 500;
+    
+}
+.coach_box img{
+    position: relative;
+    width: 218px;
+    height: 218px;
+    border-radius: 200px;
+}
+.offline{
+    position: relative;
+    width:635px;
+    padding-top: 100px;
+}
+.offline>h2{
+    color: #265F88;
+    font-weight: 900;
+    font-size: 30px;
+}
+.offline>span{
+    position: relative;
+    color: #6b6b6b;
+    top: 15px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.order_box2{
+    position: relative;
+    width: 1300px;
+    height: 85px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 25px 20px;
+    transition: all 0.4s;
+    top: 30px;
+}
+.order_box2:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.num_count{
+    position: absolute;
+    border: 1px solid #97CD6D;
+    width: 50px;
+    height: 35px;
+    padding: 5px 5px;
+    border-radius: 5px;
+    text-align: center;
+    top: 23px;
+}
+.num_count p{
+    color: #7bb44f;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 3px 3px;
+}
+.order_box_t{
+    position: relative;
+    left: 80px;
+    top: 5px;
+}
+.price{
+    position: relative;
+    bottom: 10px;
+    left: 400px;
+    font-size: 15px;
+
+}
+.big_span{
+    font-weight: bold;
+    font-size: 15px;
+}
+.small_span{
+    font-size: 14px;
+    font-weight: 500;
+}
+.go_order{
+    position: absolute;
+    border: 1px solid #265F88;
+    border-radius: 3px;
+    width: 125px;
+    height: 45px;
+    text-align: center;
+    padding-top: 15px;
+    right: 30px;
+    bottom: 20px;
+    color: #969696;
+    font-size: 15px;
+    transition: all 0.4s;
+    font-weight: 600;
+}
+.go_order:hover{
+    background-color:#265F88;
+    color: #fff;
+    font-weight: 700;
+}
+/*오른쪽 구역 시작*/
+
+.second_section{
+    position: relative;
+    width: 549px;
+    left: 750px;
+    bottom: 850px;
+}
+.r_introduce{
+    position: absolute;
+    height: 420px;
+    right: 0;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+.r_introduce>h2{
+    position: relative;
+    font-size: 15px;
+    color: #18A0FB;
+    left: 10px;
+    top: 20px;
+}
+.r_introduce>ul{
+    position: relative;
+    width: 549px;
+    height: 500px;
+    top: 30px;
+    text-align: center;
+}
+.r_introduce>ul>li{
+    position: relative;
+    padding-top: 30px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    padding-bottom: 30px;
+}
+.r_introduce>ul>li:last-child{
+    border: none;
+}
+.center_name{
+    font-size: 20px;
+}
+.center_address{
+    font-size: 18px;
+}
+.center_time{
+    font-size: 15px;
+    line-height: 25px;
+}
+.center_time span{
+    font-size: 15px;
+   /* color: #6b6b6b;*/
+    color: #18A0FB;
+}
+.center_call{
+    font-size: 18px;
+    line-height: 25px;
+}
+.center_call span{
+    font-size: 15px;
+    color: #18A0FB;
+}
+.map_box{
+    position: relative;
+    width: 549px;
+    height: 345px;
+    top: 650px;
+}
+.map_box>h2{
+    position: relative;
+    font-size: 15px;
+    color: #18A0FB;
+    left: 10px;
+}
+.center_pic_box{
+    position: relative;
+    top: 150px;
+    width: 549px;
+    height: 562px;
+}
+.center_pic_box>h2{
+    position: relative;
+    font-size: 15px;
+    color: #18A0FB;
+    left: 10px;
+}
+.center_pic_area{
+    position: relative;
+    border: 1px solid rgb(145, 145, 145);
+    width: 350px;
+    height: 300px;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.article img{
+    position: relative;
+    width: 116px;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+    overflow: hidden;
+    background: #18A0FB;
+}
+.see_more{
+    position: relative;
+    width: 1300px;
+    margin: 0 auto;
+    height: 400px;
+    border-top: 1px solid rgb(173, 173, 173);
+    margin-top: 200px;
+    
+}
+.see_more>div{
+    position: relative;
+    width: 630px;
+    height: 217px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    float: left;
+    top: 80px;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+.see_more>div:hover{
+    background-color: #EFEFEF;
+}
+.see_more p{
+    font-size: 18px;
+    padding: 30px 0 0 30px;
+    line-height: 25px;
+    font-weight: 500;
+}
+
+.see_more a{
+    color: #fff;
+    position: absolute;
+    border-radius: 50px;
+    width: 159px;
+    height: 57px;
+    font-size: 15px;
+    left: 30px;
+    bottom: 50px;
+    background-color: #265F88;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+    padding-top: 20px;
+    transition: all 0.5s;
+}
+.see_more a:hover{
+    background-color: #18A0FB;
+}
+.more_sec{
+    position: relative;
+    left: 38px;
+}
+#map{
+    position: absolute;
+    top: 50px;
+}

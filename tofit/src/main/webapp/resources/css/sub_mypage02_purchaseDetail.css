@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../font/Pretendard/public/variable/PretendardVariable.ttf") format("truetype");
+}
+
+#content {
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+}
+button {
+    cursor: pointer;
+}
+
+/* order_head 시작 */
+.order_head {
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+.back {
+	position: relative;
+    font-family: "pretendard";
+    color: #c0c0c0;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.order_head h1 {
+    position: relative;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 30px;
+    font-weight: 400;
+    width: 300px;
+    height: 35px;
+}
+
+/* orderDetail 공통 */
+.orderDetail h2 {
+    position: relative;
+    font-family: "pretendard";
+    color: #888;
+    font-size: 20px;
+    font-weight: 400;
+}
+.orderDetail table {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+.orderDetail table th, .orderDetail table td {
+    border: 1px solid #ddd;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    padding-left: 20px;
+}
+.orderDetail table th {
+    width: 250px;
+}
+
+/* order_info 시작 */
+.order_info {
+    width: 100%;
+    position: relative;
+    margin-top: 100px;
+}
+
+/* pay_info 시작 */
+.pay_info {
+    width: 100%;
+    position: relative;
+    margin-top: 60px;
+}
+.pay_info tr.totalPay {
+    background-color: #F5F5F5;
+}
+
+/* orderProduct_info 시작 */
+.orderProduct_info {
+    width: 100%;
+    position: relative;
+    margin-top: 60px;
+}
+.orderProduct_info h2 {
+    position: relative;
+    font-family: "pretendard";
+    color: #888;
+    font-size: 20px;
+    font-weight: 400;
+}
+.orderProduct_info table {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+.orderProduct_info table th,td {
+    border: 1px solid #ddd;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+}
+.orderProduct_info table th {
+    height: 50px;
+    line-height: 50px;
+}
+.orderProduct_info table td {
+    height: 130px;
+    line-height: 130px;
+    position: relative;
+}
+.orderProduct_info table td img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+.orderProduct_info table td:not(.proName) {
+    text-align: center;
+}
+.orderProduct_info table td:first-child {
+    width: 120px;
+}
+.orderProduct_info table td.proName {
+    padding-left: 20px;
+    width: 690px;
+}
+.orderProduct_info table td:nth-child(3) {
+    width: 122px;
+}
+.orderProduct_info table td:nth-child(4) {
+    width: 204px;
+}
+
+
+/* delivery_info 시작 */
+.delivery_info {
+    width: 100%;
+    position: relative;
+    margin: 60px 0 300px;
+}
+.delivery_info p {
+    position: absolute;
+    bottom: -100px;
+    right: 0px;
+}
+.delivery_info p button {
+    width: 80px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+}
+.delivery_info p button.order_refund {
+    background-color: #112233;
+    color: #fff;
+}
+.delivery_info p button.order_refund_no {
+    background-color: #EDEDED;
+}

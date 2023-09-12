@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.calendar">
+
+<resultMap type="calendarVO" id="calResult">
+	<result property="ptNum" column="ptNum"/>
+	<result property="ptDate" column="ptDate"/>
+	<result property="ptTime" column="ptTime"/>
+	<result property="ptPaynum" column="ptPaynum"/>
+	<result property="id" column="id"/>
+	<result property="coachId" column="coachId"/>
+</resultMap>
+<resultMap type="reservationVO" id="reserveResult">
+	<result property="ptNum" column="ptNum"/>
+	<result property="cenName" column="cenName"/>
+	<result property="ptPeriod" column="ptPeriod"/>
+	<result property="ptCount" column="ptCount"/>
+	<result property="ptDate" column="ptDate"/>
+	<result property="ptTime" column="ptTime"/>
+</resultMap>
+
+<!-- 회원종류 확인하기 -->
+<select id="getUser" resultType="String" parameterType="String">
+	<![CDATA[
+		select decode(admin, '일반', 'user', '코치', 'coach', 'admin') as result from members where id=#{id}
+	]]>
+</select>
+<!-- 일반회원 -->
+<!-- PT 예약정보 조회 -->
+<select id="getReserveInfo" resultMap="calResult" parameterType="String">
+	<![CDATA[
+		select * from ptreservation where id=#{_id}
+	]]>
+</select>
+<!-- PT이용권 구매여부 조회 -->
+<select id="getPTmembership" resultType="String" parameterType="String">
+	<![CDATA[
+		select decode(count(*), 0, 'false', 'true') from ptPaylist where userid=#{id} and ptRemain>0
+	]]>
+</select>
+<!-- PT이용권번호 조회 -->
+<select id="getTimes_PT" resultType="int" parameterType="calendarVO">
+	<![CDATA[
+		select ptPaynum from ptpaylist where userid=#{id} and ptRemain>0
+	]]>
+</select>
+<!-- PT이용권 코치이름 조회 -->
+<select id="getTimes_Coach" resultType="String" parameterType="int">
+	<![CDATA[
+		select ptCoach from ptMembership where ptNo=(select ptNo from ptpaylist where ptPaynum=#{ptPaynum})
+	]]>
+</select>
+<!-- 코치 스케줄 조회 -->
+<select id="getTimes_schedule" resultType="String" parameterType="calendarVO">
+	<![CDATA[
+		select ptTime from ptReservation where coachId=#{coachId} and ptDate=#{ptDate}
+	]]>
+</select>
+<!-- PT예약번호 생성 -->
+<select id="getPTNum" resultType="int">
+	<![CDATA[
+		select nvl(max(ptNum),0) from ptreservation
+	]]>
+</select>
+<!-- 구매한 PT이용권 조회 -->
+<select id="addReservation_PT" resultType="int" parameterType="calendarVO">
+	<![CDATA[
+		select ptPaynum from ptpaylist where userid=#{id} and ptRemain>0
+	]]>
+</select>
+<!-- 구매한 PT이용권 코치이름 조회 -->
+<select id="addReservation_Coach" resultType="String" parameterType="int">
+	<![CDATA[
+		select ptCoach from ptMembership where ptNo=(select ptNo from ptpaylist where ptPaynum=#{ptPaynum})
+	]]>
+</select>
+<!-- PT예약 추가 -->
+<insert id="addReservation_add" parameterType="calendarVO">
+	<![CDATA[
+		insert into ptreservation values(#{ptNum}, #{ptDate}, #{ptTime}, #{ptPaynum}, #{id}, #{coachId})
+	]]>
+</insert>
+<!-- 피티이용권 남은 횟수 조정 -->
+<update id="addReservation_ptRemain" parameterType="int">
+	<![CDATA[
+		update ptpaylist set ptRemain=ptRemain-1 where ptPaynum=#{ptPaynum}
+	]]>
+</update>
+<!-- PT예약 세부내용 가져오기 (페이징) -->
+<select id="getReserveDetail" resultMap="reserveResult" parameterType="hashMap">
+	<![CDATA[
+		select ptNum, ptDate, ptTime, cenName, ptPeriod, ptCount from
+		(select rownum rn, settbl.* from 
+		(select rv.ptNum, rv.ptDate, rv.ptTime, fit.cenName, pt.ptPeriod, pt.ptCount 
+		from ptReservation rv, fitnessCenter fit, ptMembership pt, ptPaylist pay 
+		where rv.ptPaynum=pay.ptPaynum and pay.ptNo=pt.ptNo and pt.fkCenNumber=fit.cenNumber 
+		and rv.id=#{id} and sysdate < TO_DATE(rv.ptDate, 'yyyy-mm-dd') order by rv.ptNum) settbl)
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+<!-- 오늘 이후의 PT예약수 조회 -->
+<select id="getSelectedTotal" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(ptNum) from ptReservation where id=#{id} and sysdate < TO_DATE(ptDate, 'yyyy-mm-dd')
+	]]>
+</select>
+<!-- 피티이용권 남은 횟수 조정하기 -->
+<update id="cancelRerservation_ptRemain" parameterType="int">
+	<![CDATA[
+		update ptpaylist set ptRemain=ptRemain+1 where ptPaynum=(select ptPaynum from ptReservation where ptNum=#{ptNum})
+	]]>
+</update>
+<!-- 피티예약 취소하기 -->
+<delete id="cancelRerservation_cancel" parameterType="int">
+	<![CDATA[
+		delete from ptReservation where ptNum=#{ptNum}
+	]]>
+</delete>
+
+
+<!-- 코치회원 -->
+<!-- PT예약정보 가져오기 -->
+<select id="getReserveInfoC" resultMap="calResult" parameterType="String">
+	<![CDATA[
+		select * from ptreservation where id!=#{_id} and coachId=#{_id}
+	]]>
+</select>
+<!-- PT예외시간 조회 -->
+<select id="getTimesC" resultType="String" parameterType="hashMap">
+	<![CDATA[
+		select ptTime from ptReservation where coachId=#{id} and ptDate=#{ptDate}
+	]]>
+</select>
+<!-- PT예외시간 설정 -->
+<insert id="addReservationC" parameterType="calendarVO">
+	<![CDATA[
+		insert into ptreservation values(#{ptNum}, #{ptDate}, #{ptTime}, 0, #{id}, #{id})
+	]]>
+</insert>
+<!-- PT예약 세부내용 가져오기 (코치) -->
+<select id="getReserveDetailC" resultMap="reserveResult" parameterType="hashMap">
+	<![CDATA[
+		select ptNum, ptDate, ptTime from(select rownum rn, settbl.* from (select ptNum, ptDate, ptTime from ptReservation where id=#{id} and sysdate < TO_DATE(ptDate, 'yyyy-mm-dd') order by ptNum) settbl)where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+
+</mapper>

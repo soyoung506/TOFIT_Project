@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.comment">
+	<resultMap type="commentVO" id="commentResult">
+		<result property="commentNo" column="commentNo"/>
+		<result property="commentID" column="commentID"/>
+		<result property="commentDate" column="commentDate"/>
+		<result property="commentContent" column="commentContent"/>
+		<result property="commuNo" column="commuNo"/>
+	</resultMap>
+	
+
+	<select id="getCommentList" resultMap="commentResult" parameterType="int">
+		<![CDATA[
+			select * from commen where commuNo=#{commuNo} order by commentNo
+		]]>
+	</select>
+   <insert id="insertComment" parameterType="commentVO">
+		<![CDATA[
+			insert into commen (commentNo,commentID,commentContent,commuNo)
+			values (#{commentNo},#{commentID},#{commentContent},#{commuNo})
+		]]>
+	</insert>
+	<select id="getCommentNo" resultType="int">
+		<![CDATA[
+			select nvl(max(commentNo),0) from commen
+		]]>
+	</select>
+
+	<delete id="deleteComment" parameterType="int">
+		<![CDATA[
+			delete from commen where commentNo=#{commentNo}
+		]]>
+	</delete>
+	
+	<update id="updateComment" parameterType="commentVO">
+			update commen set commentContent=#{commentContent} where commentNo=#{commentNo}
+	</update>
+	
+	<delete id="removeChildComment" parameterType="int">
+		<![CDATA[
+			delete from commen where commuNo=#{commuNo}
+		]]>
+	</delete>
+	
+	<select id="getCommentId" resultType="String" parameterType="int">
+		<![CDATA[
+			select commentID from commen where commentNo=#{commentNo}
+		]]>
+	</select>
+	
+</mapper>

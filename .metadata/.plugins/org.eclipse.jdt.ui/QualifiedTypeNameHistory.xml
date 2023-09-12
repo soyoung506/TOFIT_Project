@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.tofit.spring.shop.controller.ShopController"/>
+    <fullyQualifiedTypeName name="com.tofit.spring.shop.dao.ShopDAO"/>
+    <fullyQualifiedTypeName name="com.tofit.spring.shop.vo.ProductVO"/>
+    <fullyQualifiedTypeName name="javax.xml.crypto.Data"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="com.tofit.spring.shop.service.ShopService"/>
+    <fullyQualifiedTypeName name="com.tofit.spring.mypage.profile.vo.ProfileVO"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="com.tofit.spring.shop.vo.OrderVO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.tofit.spring.shop.vo.CartsVO"/>
+</qualifiedTypeNameHistroy>

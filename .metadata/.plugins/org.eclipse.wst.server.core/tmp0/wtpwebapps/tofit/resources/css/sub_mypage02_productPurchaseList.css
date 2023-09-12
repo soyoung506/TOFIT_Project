@@ -1,0 +1,198 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../font/Pretendard/public/variable/PretendardVariable.ttf") format("truetype");
+}
+.blind {
+    display: none;
+}
+button {
+    cursor: pointer;
+}
+#content {
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* purchaseList_head 시작 */
+.purchaseList_head {
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+.back {
+	position: relative;
+    font-family: "pretendard";
+    color: #c0c0c0;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.purchaseList_head h1 {
+    position: relative;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 30px;
+    font-weight: 400;
+    width: 330px;
+    height: 35px;
+}
+.purchaseList_head ul {
+    position: relative;
+    margin-top: 100px;
+    background-color: #F5F5F5;
+    display: flex;
+    width: 100%;
+    padding: 10px 30px;
+}
+.purchaseList_head ul li {
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 30px;
+}
+.purchaseList_head ul li:not(:last-child) {
+    margin-right: 50px;
+}
+.purchaseList_head ul li input {
+    border: 1px solid #ccc;
+    width: 150px;
+    height: 30px;
+}
+.purchaseList_head ul li span {
+    padding: 0 10px;
+}
+.purchaseList_head ul li input[type=radio] {
+    display: none;
+}
+.purchaseList_head ul li input[type=radio]+label {
+    display: inline-block;
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    border: 1px solid #ccc;
+    margin-right: -5px;
+    text-align: center;
+    font-family: "pretendard";
+    color: #000000;
+    font-size: 15px;
+    font-weight: 400;
+    background-color: #fff;
+}
+.purchaseList_head ul li input[type=radio]:checked+label {
+    background-color: #112233;
+    color: #fff;
+}
+.purchaseList_head ul li button.search_period {
+    border: 1px solid #ccc;
+    width: 100px;
+    height: 30px;
+    background-color: #666;
+    color: #fff;
+}
+.purchaseList_head ul li:last-child {
+    margin-left: -30px;
+}
+
+/* purchaseList_body 시작 */
+.purchaseList_body {
+    width: 100%;
+    position: relative;
+    margin: 80px 0 300px;
+}
+.purchaseList_body ul li ul {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+.purchaseList_body ul.list_head {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    background-color: #F5F5F5;
+    padding: 10px 0;
+}
+.purchaseList_body ul.list_head li:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+.purchaseList_body ul.searchedList {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+.purchaseList_body li.noList {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+    line-height: 30px;
+}
+.purchaseList_body ul li {
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+}
+.purchaseList_body ul.list_head, ul.searchedList li { 
+    line-height: 30px;
+}
+
+.purchaseList_body ul li.orderNumber {
+    width: 135px;
+}
+.purchaseList_body ul li.orderProduct {
+    width: 335px;
+}
+.purchaseList_body ul li.orderState {
+    width: 250px;
+}
+.purchaseList_body ul li.orderPayment {
+    width: 200px;
+}
+.purchaseList_body ul li.orderSum {
+    width: 200px;
+}
+.purchaseList_body ul li.orderDate {
+    width: 180px;
+}
+.purchaseList_body>ul>li:not(.list_title, .noList):hover {
+    background-color: #f3f3f3;
+}
+
+/* 페이지 버튼 */
+.pageBtn {
+    position: relative;
+    text-align: center;
+    margin-top: 40px;
+}
+.pageBtn .ulBtn {
+    position: relative;
+    display: inline-block;
+}
+.pageBtn .ulBtn li {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 27px;
+    border: 1px solid rgba(204,204,204,0);
+}
+.pageBtn .ulBtn li a {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+}
+.pageBtn .ulBtn li.present_btn {
+    border: 1px solid rgba(204,204,204,1);
+}
+.pageBtn .ulBtn li.present_btn a {
+    color: #112233;
+    font-weight: 600;
+}
+.pageBtn .ulBtn li:hover:not(.previous_btn, .next_btn) {
+    border: 1px solid rgba(204,204,204,1);
+}

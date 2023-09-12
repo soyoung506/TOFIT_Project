@@ -1,0 +1,197 @@
+a{
+    cursor: pointer;
+    color: #354F68;
+}
+#content {
+    width:1300px;
+    margin: 0 auto;
+    position: relative;
+    height: auto;
+}
+
+#tip{
+    width:1300px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+
+.bg h3{
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    font-size: 50px;
+    margin-top: 50px;
+}
+
+/*#tip ul li.a{
+    background-color: #354F68;
+}
+#tip ul li.a a{
+    color: #ffff;
+}*/
+
+/*#tip .hd{
+    position: relative;
+    width: 88%;
+    height: 70px;
+    background-color: #3a3a3a;
+    opacity: 0.95;
+    border-radius: 3px;
+    top: -150px;
+    z-index: 10;
+    margin: 0 auto;
+}*/
+
+
+#tip .tip_main{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 10px;
+    opacity: 0.95;
+    border-radius: 5px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+table { /* 테이블 tr 간격조절 */
+    border-collapse: separate;
+    border-spacing: 0 50px;
+  }
+tr{border-radius: 10px;}
+
+.f_option{
+    margin: 0 auto;
+    left: 3%;
+    position: relative;
+    width:58%;
+    top:-5px;
+}
+select{
+    height: 40px;
+    font-size: 16px;
+    margin-right: 5px;
+    float:left;
+}
+
+#font_size{
+	width:80px;
+}
+
+.f_option img{
+    width:30px;
+    position: relative;
+    top: 7px;
+    margin-right: 5px;
+}
+.f_option .del{
+    width: 35px;
+    top: 8px;
+}
+
+form{
+    margin: 0 auto;
+    position: relative;
+    width:85%;
+    
+}
+table{
+    position: relative;
+    width:92%;
+    margin: 0 auto;
+}
+
+td{
+    position: relative;
+    margin: 5px;
+}
+
+.label{
+    border: 1px solid black;
+    background-color: #354F68;
+    color: #ffff;
+    width: 20%;
+    height: 50px;
+    font-size: 17px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+}
+.content_l{
+    height: 50px;
+    line-height: 600px;
+}
+
+input{
+    position: absolute;
+    right: 0;
+    width: 98%;
+    height: 50px;
+    right: 0;
+    padding: 10px;
+    font-size: 16px;
+}
+.file{
+    width: 98%;
+    height: 50px;
+    font-size: 17px;
+    line-height: 55px;
+}
+
+textarea{
+    position: absolute;
+    width: 98%;
+    height: 600px;
+    right: 0.5px;
+    padding: 20px;
+    font-size: 16px;
+}
+
+ .submit{
+    position: relative;
+    width: 80px;
+    height : 40px;
+    font-size: 16px;
+    float: right; 
+    border:none;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 20px;
+    bottom: 20px;
+    left: 20px;
+}
+.submit:hover{
+    background-color: #354F68;
+    color: #ffff;
+}
+
+.list{
+	position: relative;
+    width: 80px;
+    height : 40px;
+    font-size: 16px;
+    float: right; 
+    border:none;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+    bottom: 20px;
+    left: 10px;
+} 
+.list:hover{
+    background-color: #354F68;
+    color: #ffff;
+
+}
+/* 
+#buttons input{
+	float: right;
+	width: 90px;
+} */

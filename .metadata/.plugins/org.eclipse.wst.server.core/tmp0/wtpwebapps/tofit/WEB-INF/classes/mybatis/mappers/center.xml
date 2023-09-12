@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.center">
+
+	<resultMap type="centerVO" id="centerResult">
+		<result property="cenNumber" column="cenNumber" />
+		<result property="cenName" column="cenName" />
+		<result property="cenAddress" column="cenAddress" />
+		<result property="cenTel" column="cenTel" />
+		<result property="thumbnail" column="thumbnail" />
+		<result property="cenTime" column="cenTime" />
+		<result property="city" column="city" />
+	</resultMap>
+	<resultMap type="purchaseVO" id="purchaseResult">
+		<result property="ptNo" column="ptNo" />
+		<result property="ptPeriod" column="ptPeriod" />
+		<result property="ptCount" column="ptCount" />
+		<result property="ptPrice" column="ptPrice" />
+		<result property="userId" column="userId" />
+		<result property="ptPaynum" column="ptPaynum" />
+	</resultMap>
+
+	<select id="centerPTList" resultMap="purchaseResult"
+		parameterType="String">
+       <![CDATA[
+         select ptNo, ptPeriod, ptCount, ptPrice from ptMembership where fkCenNumber=#{cenNumber} order by ptNo
+        ]]>
+	</select>
+
+	<select id="selectAllList" resultMap="centerResult"
+		parameterType="hashMap">
+      <![CDATA[
+      	select cenNumber,cenName, cenAddress, cenTel, thumbnail, cenTime, city from
+		(select rownum rn, settbl.* from 
+		(select * from fitnesscenter order by cenName) settbl)
+		where rn between (#{section}-1)*60+(#{pageNum}-1)*12+1 and (#{section}-1)*60+#{pageNum}*12
+      ]]>
+	</select>
+	<select id="selectAllListSearch" resultMap="centerResult"
+		parameterType="hashMap">
+      <![CDATA[
+      	select cenNumber,cenName, cenAddress, cenTel, thumbnail, cenTime, city from
+		(select rownum rn, settbl.* from 
+		(select * from fitnesscenter where cenName like '%'||#{cenName}||'%' order by cenName) settbl)
+		where rn between (#{section}-1)*60+(#{pageNum}-1)*12+1 and (#{section}-1)*60+#{pageNum}*12
+      ]]>
+	</select>
+	<select id="getTotalCen" resultType="int">
+		<![CDATA[
+			select count(cenNumber) from fitnesscenter
+		]]>
+	</select>
+	<select id="getTotalCenSearch" resultType="int">
+		<![CDATA[
+			select count(cenNumber) from fitnesscenter where cenName like '%'||#{cenName}||'%'
+		]]>
+	</select>
+	<select id="selectCityList" resultMap="centerResult"
+		parameterType="hashMap">
+      <![CDATA[
+      	select cenNumber,cenName, cenAddress, cenTel, thumbnail, cenTime, city from
+		(select rownum rn, settbl.* from 
+		(select * from fitnesscenter where city=#{city} order by cenName) settbl)
+		where rn between (#{section}-1)*60+(#{pageNum}-1)*12+1 and (#{section}-1)*60+#{pageNum}*12
+      ]]>
+	</select>
+	<select id="selectCityListSearch" resultMap="centerResult"
+		parameterType="hashMap">
+      <![CDATA[
+      	select cenNumber,cenName, cenAddress, cenTel, thumbnail, cenTime, city from
+		(select rownum rn, settbl.* from 
+		(select * from fitnesscenter where city=#{city} and cenName like '%'||#{cenName}||'%' order by cenName) settbl)
+		where rn between (#{section}-1)*60+(#{pageNum}-1)*12+1 and (#{section}-1)*60+#{pageNum}*12
+      ]]>
+	</select>
+	<select id="getTotalCenCity" resultType="int" parameterType="hashMap">
+		<![CDATA[
+			select count(cenNumber) from fitnesscenter where city=#{city}
+		]]>
+	</select>
+	<select id="getTotalCenCitySearch" resultType="int" parameterType="hashMap">
+		<![CDATA[
+			select count(cenNumber) from fitnesscenter where city=#{city} and cenName like '%'||#{cenName}||'%'
+		]]>
+	</select>
+
+	<select id="selectCenterlist" resultType="centerVO"
+		parameterType="String">
+      <![CDATA[
+         SELECT * FROM fitnesscenter where cenNumber=#{cenNumber}
+      ]]>
+	</select>
+	<insert id="insetCenter" parameterType="centerVO">
+  		<![CDATA[
+ 			insert into fitnesscenter(cenNumber,cenName, cenAddress, cenTel, thumbnail, cenTime, city)values(#{cenNumber},#{cenName},#{cenAddress},#{cenTel},#{thumbnail},#{cenTime},#{city})
+  		]]>
+	</insert>
+	<select id="getPT" resultType="purchaseVO"
+		parameterType="hashMap">
+      <![CDATA[
+         select ptNo, ptCount, ptPrice from ptMembership where ptNo=#{ptNo}
+      ]]>
+	</select>
+	<select id="getPTpaynum" resultType="int">
+      <![CDATA[
+         select nvl(max(ptPaynum),0) from ptPayList
+      ]]>
+	</select>
+	<insert id="ptPurchase" parameterType="purchaseVO">
+  		<![CDATA[
+ 			insert into ptPayList(ptPaynum, ptRemain, ptPayment, ptSum, ptTransfer, ptRefund, userId, ptNo)
+ 			values(#{ptPaynum},#{ptCount},'신용카드',#{ptPrice},'n','n',#{userId},#{ptNo})
+  		]]>
+	</insert>
+
+
+
+</mapper>

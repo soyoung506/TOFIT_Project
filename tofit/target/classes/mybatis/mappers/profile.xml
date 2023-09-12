@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.profile">
+
+<resultMap type="boardVO" id="boardResult">
+	<result property="communo" column="communo"/>
+	<result property="title" column="title"/>
+	<result property="watch" column="watch"/>
+	<result property="commulike" column="commulike"/>
+	<result property="writeDate" column="writeDate"/>
+	<result property="content" column="content"/>
+	<result property="imgFile" column="imgFile"/>
+	<result property="link" column="link"/>
+	<result property="font" column="font"/>
+	<result property="fontSize" column="fontSize"/>
+	<result property="userid" column="userid"/>
+</resultMap>
+<resultMap type="profileVO" id="proResult">
+	<result property="id" column="id"/>
+	<result property="name" column="name"/>
+	<result property="pwd" column="pwd"/>
+	<result property="email" column="email"/>
+	<result property="nickName" column="nickName"/>
+	<result property="profileImg" column="profileImg"/>
+	<result property="joinDate" column="joinDate"/>
+	<result property="address" column="address"/>
+	<result property="phone" column="phone"/>
+	<result property="admin" column="admin"/>
+</resultMap>
+
+<!-- 회원정보 가져오기 -->
+<select id="getProfile" resultType="profileVO" parameterType="String">
+	<![CDATA[
+		select * from members where id=#{_id}
+	]]>
+</select>
+<!-- 회원 확인하기 -->
+<select id="checkUser" resultType="String" parameterType="profileVO">
+	<![CDATA[
+		select decode(count(*), 1, 'true', 'false') as result from members where id=#{id} and pwd=#{pwd}
+	]]>
+</select>
+<!-- 회원정보 수정하기 -->
+<update id="modProfile" parameterType="profileVO">
+	<![CDATA[
+		update members set pwd=#{pwd}, email=#{email}, phone=#{phone}, address=#{address}, profileImg=#{profileImg} where id=#{id}
+	]]>
+</update>
+<!-- 회원정보 삭제하기 -->
+<delete id="removeUser" parameterType="String">
+	<![CDATA[
+		delete from members where id=#{id}
+	]]>
+</delete>
+<!-- 글 목록 페이징 -->
+<select id="selectMyboard" resultMap="boardResult" parameterType="hashMap">
+	<![CDATA[
+		select communo, title, watch, commulike, writeDate from
+		(select rownum rn, settbl.* from 
+		(select * from community where userid=#{id} order by communo desc) settbl)
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+<!-- 내가 쓴 게시글 수 -->
+<select id="getTotalMyboard" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(communo) from community where userid=#{id}
+	]]>
+</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

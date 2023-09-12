@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.payment">
+
+<resultMap type="ptPaymentVO" id="ptpayResult">
+	<result property="ptPaynum" column="ptPaynum"/>
+	<result property="cenName" column="cenName"/>
+	<result property="ptPeriod" column="ptPeriod"/>
+	<result property="ptCount" column="ptCount"/>
+	<result property="ptPayment" column="ptPayment"/>
+	<result property="ptSum" column="ptSum"/>
+	<result property="ptPaydate" column="ptPaydate"/>
+	<result property="ptRemain" column="ptRemain"/>
+	<result property="ptRefund" column="ptRefund"/>
+</resultMap>
+<resultMap type="orderVO" id="orderResult">
+	<result property="orNum" column="orNum" />
+	<result property="id" column="id" />
+	<result property="orDate" column="orDate" />
+	<result property="orTotal" column="orTotal" />
+	<result property="orResult" column="orResult" />
+	<result property="orPhone" column="orPhone" />
+	<result property="orAddress" column="orAddress" />
+	<result property="orRequest" column="orRequest" />
+	<result property="orPayment" column="orPayment" />
+	<result property="pName" column="pName" />
+	<result property="orCount" column="orCount" />
+</resultMap>
+<resultMap type="cartsVO" id="cartsResult">
+	<result property="odNum" column="odNum" />
+	<result property="id" column="id" />
+	<result property="pNum" column="pNum" />
+	<result property="odCount" column="odCount" />
+	<result property="odPrice" column="odPrice" />
+	<result property="orNum" column="orNum" />
+	<result property="pName" column="pName" />
+	<result property="pPrice" column="pPrice" />
+	<result property="pImg1" column="pImg1" />
+</resultMap>
+
+<!-- 이용중인 PT이용권 가져오기 -->
+<select id="getPTpayment" resultType="ptPaymentVO" parameterType="String">
+	<![CDATA[
+		select pay.ptPaynum ptPaynum, fit.cenName cenName, pt.ptPeriod ptPeriod, 
+		pt.ptCount ptCount, pay.ptPayment ptPayment, pay.ptSum ptSum, 
+		pay.ptPaydate ptPaydate, pay.ptRemain ptRemain from fitnessCenter fit, 
+		ptMembership pt, ptPaylist pay 
+		where pay.ptNo=pt.ptNo and pt.fkCenNumber=fit.cenNumber 
+		and pay.userid=#{_id} and pay.ptRemain != 0
+	]]>
+</select>
+<!-- PT구매내역 더보기 -->
+<select id="getPTList" resultMap="ptpayResult" parameterType="hashMap">
+	<![CDATA[
+		select * from(select rownum rn, settbl.* from 
+		(select pay.ptPaynum ptPaynum, fit.cenName cenName, pt.ptPeriod ptPeriod, 
+		pt.ptCount ptCount, pay.ptPayment ptPayment, pay.ptSum ptSum, 
+		pay.ptPaydate ptPaydate, pay.ptRemain ptRemain, pay.ptRefund ptRefund 
+		from fitnessCenter fit, ptMembership pt, ptPaylist pay 
+		where pay.ptNo=pt.ptNo and pt.fkCenNumber=fit.cenNumber 
+		and pay.userid=#{id} order by ptPaynum desc) settbl)
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+<!-- PT이용권 구매수 조회 -->
+<select id="getptTotal" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(ptPaynum) from ptPaylist where userid=#{id}
+	]]>
+</select>
+<!-- PT이용권 환불하기 -->
+<update id="refundPT" parameterType="int">
+	<![CDATA[
+		update ptPaylist set ptRefund='y', ptRemain=0 where ptPaynum=#{ptPayNum}
+	]]>
+</update>
+
+
+<!-- 상품 구매내역 간략히 보기 -->
+<select id="getOrderList" resultMap="orderResult" parameterType="String">
+	<![CDATA[
+		select * from(select rownum rn, settbl.* 
+		from(SELECT o.orNum, ot.orDate, ot.orTotal, ot.orResult, p.pName, g.orCount
+		FROM odTBL o JOIN proTBL p ON o.pNum = p.pNum JOIN orderTBL ot ON o.orNum = ot.orNum
+		JOIN
+		  (SELECT orNum, COUNT(*) AS orCount FROM odTBL GROUP BY orNum) g 
+		ON o.orNum = g.orNum
+		WHERE ot.id = #{id} AND o.pNum = 
+		(SELECT MIN(pNum) FROM odTBL WHERE orNum = o.orNum) order by ot.orNum desc)settbl) 
+		where rn between 1 and 3
+	]]>
+</select>
+<!-- proTBL에서 pName 하나 추출, odTBL에서 해당주문의 상품 개수, orderTBL에서 주문일, 주문상태, 주문금액 추출 -->
+
+<!-- 상품 구매내역 더보기(전체) -->
+<select id="getProductList" resultMap="orderResult" parameterType="hashMap">
+	<![CDATA[
+		select * from(select rownum rn, settbl.* 
+		from(SELECT o.orNum, ot.orDate, ot.orTotal, ot.orResult, ot.orPayment, p.pName, g.orCount
+		FROM odTBL o JOIN proTBL p ON o.pNum = p.pNum JOIN orderTBL ot ON o.orNum = ot.orNum
+		JOIN
+		  (SELECT orNum, COUNT(*) AS orCount FROM odTBL GROUP BY orNum) g 
+		ON o.orNum = g.orNum
+		WHERE ot.id = #{id} AND o.pNum = 
+		(SELECT MIN(pNum) FROM odTBL WHERE orNum = o.orNum) order by ot.orNum desc)settbl) 
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+<!-- 상품 구매내역 더보기(특정기간) -->
+<select id="getProductListDate" resultMap="orderResult" parameterType="hashMap">
+	<![CDATA[
+		select * from(select rownum rn, settbl.* 
+		from(SELECT o.orNum, ot.orDate, ot.orTotal, ot.orResult, ot.orPayment, p.pName, g.orCount
+		FROM odTBL o JOIN proTBL p ON o.pNum = p.pNum JOIN orderTBL ot ON o.orNum = ot.orNum
+		JOIN
+		  (SELECT orNum, COUNT(*) AS orCount FROM odTBL GROUP BY orNum) g 
+		ON o.orNum = g.orNum
+		WHERE ot.id = #{id} AND TO_CHAR(orDate, 'YYYY-MM-DD') between #{startDate} and #{endDate} 
+		AND o.pNum = (SELECT MIN(pNum) FROM odTBL WHERE orNum = o.orNum) order by ot.orNum desc)settbl) 
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+<!-- 상품 구매내역 더보기(15일) -->
+<select id="getProductListHalf" resultMap="orderResult" parameterType="hashMap">
+	<![CDATA[
+		select * from(select rownum rn, settbl.* 
+		from(SELECT o.orNum, ot.orDate, ot.orTotal, ot.orResult, ot.orPayment, p.pName, g.orCount
+		FROM odTBL o JOIN proTBL p ON o.pNum = p.pNum JOIN orderTBL ot ON o.orNum = ot.orNum
+		JOIN
+		  (SELECT orNum, COUNT(*) AS orCount FROM odTBL GROUP BY orNum) g 
+		ON o.orNum = g.orNum
+		WHERE ot.id = #{id} AND orDate between sysdate-15 and sysdate 
+		AND o.pNum = (SELECT MIN(pNum) FROM odTBL WHERE orNum = o.orNum) order by ot.orNum desc)settbl) 
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+<!-- 상품 구매내역 더보기(1개월) -->
+<select id="getProductListOne" resultMap="orderResult" parameterType="hashMap">
+	<![CDATA[
+		select * from(select rownum rn, settbl.* 
+		from(SELECT o.orNum, ot.orDate, ot.orTotal, ot.orResult, ot.orPayment, p.pName, g.orCount
+		FROM odTBL o JOIN proTBL p ON o.pNum = p.pNum JOIN orderTBL ot ON o.orNum = ot.orNum
+		JOIN
+		  (SELECT orNum, COUNT(*) AS orCount FROM odTBL GROUP BY orNum) g 
+		ON o.orNum = g.orNum
+		WHERE ot.id = #{id} AND orDate between add_months(sysdate,-1) and sysdate 
+		AND o.pNum = (SELECT MIN(pNum) FROM odTBL WHERE orNum = o.orNum) order by ot.orNum desc)settbl) 
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+<!-- 상품 구매내역 더보기(3개월) -->
+<select id="getProductListThree" resultMap="orderResult" parameterType="hashMap">
+	<![CDATA[
+		select * from(select rownum rn, settbl.* 
+		from(SELECT o.orNum, ot.orDate, ot.orTotal, ot.orResult, ot.orPayment, p.pName, g.orCount
+		FROM odTBL o JOIN proTBL p ON o.pNum = p.pNum JOIN orderTBL ot ON o.orNum = ot.orNum
+		JOIN
+		  (SELECT orNum, COUNT(*) AS orCount FROM odTBL GROUP BY orNum) g 
+		ON o.orNum = g.orNum
+		WHERE ot.id = #{id} AND orDate between add_months(sysdate,-3) and sysdate 
+		AND o.pNum = (SELECT MIN(pNum) FROM odTBL WHERE orNum = o.orNum) order by ot.orNum desc)settbl) 
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+<!-- 상품 구매내역 더보기(6개월) -->
+<select id="getProductListSix" resultMap="orderResult" parameterType="hashMap">
+	<![CDATA[
+		select * from(select rownum rn, settbl.* 
+		from(SELECT o.orNum, ot.orDate, ot.orTotal, ot.orResult, ot.orPayment, p.pName, g.orCount
+		FROM odTBL o JOIN proTBL p ON o.pNum = p.pNum JOIN orderTBL ot ON o.orNum = ot.orNum
+		JOIN
+		  (SELECT orNum, COUNT(*) AS orCount FROM odTBL GROUP BY orNum) g 
+		ON o.orNum = g.orNum
+		WHERE ot.id = #{id} AND orDate between add_months(sysdate,-6) and sysdate 
+		AND o.pNum = (SELECT MIN(pNum) FROM odTBL WHERE orNum = o.orNum) order by ot.orNum desc)settbl) 
+		where rn between (#{section}-1)*25+(#{pageNum}-1)*5+1 and (#{section}-1)*25+#{pageNum}*5
+	]]>
+</select>
+
+<!-- 상품 구매내역 개수(전체) -->
+<select id="getProductTotal" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(orNum) from ordertbl where id=#{id}
+	]]>
+</select>
+<!-- 상품 구매내역 개수(특정기간) -->
+<select id="getProductTotalDate" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(orNum) from ordertbl where id=#{id} and TO_CHAR(orDate, 'YYYY-MM-DD') between #{startDate} and #{endDate}
+	]]>
+</select>
+<!-- 상품 구매내역 개수(15일) -->
+<select id="getProductTotalHalf" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(orNum) from ordertbl where id=#{id} and orDate between sysdate-15 and sysdate
+	]]>
+</select>
+<!-- 상품 구매내역 개수(1개월) -->
+<select id="getProductTotalOne" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(orNum) from ordertbl where id=#{id} and orDate between add_months(sysdate,-1) and sysdate
+	]]>
+</select>
+<!-- 상품 구매내역 개수(3개월) -->
+<select id="getProductTotalThree" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(orNum) from ordertbl where id=#{id} and orDate between add_months(sysdate,-3) and sysdate
+	]]>
+</select>
+<!-- 상품 구매내역 개수(6개월) -->
+<select id="getProductTotalSix" resultType="int" parameterType="hashMap">
+	<![CDATA[
+		select count(orNum) from ordertbl where id=#{id} and orDate between add_months(sysdate,-6) and sysdate
+	]]>
+</select>
+
+<!-- 주문 상세네역 조회 -->
+<select id="getProdpayDetail" resultType="orderVO" parameterType="int">
+	<![CDATA[
+		select ord.orNum, mem.name id, ord.orDate, ord.orTotal, ord.orResult, ord.orPhone, ord.orAddress, ord.orRequest, ord.orPayment 
+		from ordertbl ord, members mem where ord.id=mem.id and orNum=#{orNum}
+	]]>
+</select>
+<!-- 주문 상세네역 상품 조회 -->
+<select id="getProdDetail" resultMap="cartsResult" parameterType="int">
+	<![CDATA[
+		select od.pNum, pro.pImg1, pro.pName, od.odCount, pro.pPrice 
+		from protbl pro, odtbl od where pro.pNum=od.pNum and orNum=#{orNum}
+	]]>
+</select>
+
+<!-- 주문내역 환불 -->
+<update id="refundPay" parameterType="int">
+	<![CDATA[
+		update ordertbl set orResult='환불' where orNum=#{orNum}
+	]]>
+</update>
+
+
+
+
+
+
+
+</mapper>

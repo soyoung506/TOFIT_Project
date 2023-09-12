@@ -1,0 +1,254 @@
+@font-face {
+    font-family: "NotoSansR";
+    src: url("../font/Noto_Sans/NotoSans-Regular.ttf") format("truetype");
+}
+
+#content {
+    width: 100%;
+}
+#content_tit {
+    width: 1300px;
+    height: 215px;
+    margin: 0 auto;
+}
+.headtit {
+    color: #112233;
+    font-size: 52px;
+    margin-top: 50px;
+}
+#content_tit p span {
+    display: inline-block;
+    width: 1100px;
+}
+.s_tit {
+    color: #112233;
+    font-size: 18px;
+    margin-top: 40px;
+}
+.s_tit span{
+    display: inline-block;
+    width: 1100px;
+    line-height: 30px;
+}
+#introduce {
+    width: auto;
+}
+#introduce_inner {
+    width: 1300px;
+    height: 860px;
+    margin: 0 auto;
+}
+.introd_pic1{
+    width: 320px;
+    height: 650px;
+    margin-top: 90px;
+}
+.introd_pic1 img {
+    width: 320px;
+    height: 650px;
+}
+.col1{
+    width: 700px;
+    height: 710px;
+    float: right;
+    margin-right: 300px;
+}
+.col1_inner {
+    width: 680px;
+    height: 560px;
+}
+.col1_tit {
+    font-size: 32px;
+    color: #123;
+    margin-top: 80px;
+}
+.col1_tit span {
+    display: inline-block;
+    width: 600px;
+}
+.col1_tit2 {
+    margin-top: 30px;
+    color: rgba(17,34,51,.8);
+    font-size: 18px;
+    line-height: 1.6;
+}
+.introd_pic2 {
+    position: relative;
+}
+.intr_pic3 {
+    position: absolute;
+    left: 180px;
+    top: 70px;
+}
+.introd_pic2 img {
+    width: 320px;
+    height: 650px;
+    animation-name: gide2;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    }
+    
+    @-webkit-keyframes gide2 {
+    0% {
+        opacity: 0;
+        left: 30px;
+    }
+    
+    100% {
+        opacity: 1;
+        bottom: 30px;
+    }
+    }
+
+.intr_pic1 {
+    animation-name: gide1;
+    animation-duration: 4s;
+    animation-duration: leaner;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    }
+    
+    @-webkit-keyframes gide1 {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+    }
+    .col2 {
+        margin-left: 80px;
+    }
+
+.gide_title {
+    width: 1300px;
+    height: 340px;
+    margin: 0 auto;
+}
+.gtit1  {
+    display: inline-block;
+    width: 1200px;
+    font-size: 52px;
+    color: #123;
+    margin-bottom: 25px;
+}
+.gide_title p span {
+    display: inline-block;
+    width: 1300px;
+    color: rgba(17,34,51,.8);
+    font-size: 18px;
+}
+.gide_title a{
+    display: block;
+    margin: 20px 0;
+    width: 260px;
+    height: 52px;
+    line-height: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    background: #123;
+    color: #fff;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+    border-radius: 50px;
+    text-decoration: none;
+}
+.mainFQA {
+    width: auto;
+    margin-top: 30px;
+}
+.fqa_contant {
+    width: 1300px;
+    height: 350px;
+    margin: auto;
+}
+.fqa_contant h4{
+    font-weight: 600;
+    font-size: 20px;
+    color: #123;
+}
+.mainFQA li a{
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    font-weight: 600; 
+}
+.mainFQA li .answe{
+    display: none;
+    margin: 15px;
+    padding: 15px;
+    font-size: 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+}
+
+.mainFQA li .answe2{
+    display: none;
+    margin: 15px;
+    padding: 15px;
+    font-size: 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+}
+.mainFQA li .answe3{
+    display: none;
+    margin: 15px;
+    padding: 15px;
+    font-size: 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+}
+.mainFQA li .answe4{
+    display: none;
+    margin: 15px;
+    padding: 15px;
+    font-size: 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+}
+.mainFQA li .answe5{
+    display: none;
+    margin: 15px;
+    padding: 15px;
+    font-size: 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+}
+.selected:hover {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.selected2:hover {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.selected3:hover {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.selected4:hover {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.selected5:hover {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+
+

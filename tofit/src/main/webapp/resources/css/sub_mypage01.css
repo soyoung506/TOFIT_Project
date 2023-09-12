@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "pretendard";
+    src: url("../font/Pretendard/public/variable/PretendardVariable.ttf") format("truetype");
+}
+
+#content {
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* mypage_head 시작 */
+.mypage_head {
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+.mypage_head h1 {
+    position: relative;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 30px;
+    font-weight: 400;
+    width: 150px;
+    height: 35px;
+}
+.mypage_head ul {
+    position: relative;
+    display: flex;
+    margin-top: 25px;
+}
+.mypage_head ul li {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+}
+.mypage_head ul li.present_page {
+    background-color: #112233;
+}
+.mypage_head ul li:not(:last-child) {
+    margin-right: 10px;
+}
+.mypage_head ul li a {
+    position: relative;
+    display: block;
+    width: 120px;
+    height: 80px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 80px;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 17px;
+    font-weight: 400;
+}
+.mypage_head ul li.present_page a{
+    color: #fff;
+}
+.mypage_head ul li:not(.present_page):hover a {
+    color: #4685c5;
+}
+
+/* mypage_reservation 시작 */
+.mypage_reservation {
+    width: 100%;
+    position: relative;
+    margin-top: 80px;
+}
+.mypage_reservation h2 {
+    position: relative;
+    font-family: "pretendard";
+    color: #888;
+    font-size: 20px;
+    font-weight: 400;
+}
+.mypage_reservation p a {
+    position: absolute;
+    right: 0;
+    font-family: "pretendard";
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+}
+.mypage_reservation p a:hover {
+    font-weight: 600;
+}
+.mypage_reservation .reservation_first {
+    top: 10px;
+}
+.mypage_reservation .reservation_second {
+    top: 35px;
+}
+
+/* mypage_calendar 시작 */
+.mypage_calendar {
+    width: 100%;
+    position: relative;
+    margin: 50px 0 300px;
+}
