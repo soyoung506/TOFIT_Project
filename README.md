@@ -78,7 +78,7 @@ TOFIT에서 제공하는 피트니스 센터 및 PT 이용권 정보와 함께 P
 <br>
 
 ## ERD
-<img src="images/TOFITDiary.png" alt="개체 관계도">
+<img src="images/TOFIT.png" alt="개체 관계도">
 
 <br>
 
